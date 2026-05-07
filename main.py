@@ -5,7 +5,7 @@ English Teaching Multi-Agent System
 Agent 1 - GrammarChecker: 找语法错误和表达问题
 Agent 2 - WritingAdvisor: 给出改进建议和示范句子
 
-作者: 张艺 | 学校: 郑州西亚斯学院 | 赛道: open
+作者: 张祎 | 学校: 郑州西亚斯学院 | 赛道: open
 """
 
 import os
@@ -16,7 +16,7 @@ llm_config = {
     "api_key": os.environ.get("OPENAI_API_KEY"),
 }
 
-# ── Agent 1：语法检查老师 ──────────────────────────
+# Agent 1：语法检查老师
 checker = ConversableAgent(
     name="GrammarChecker",
     system_message="""You are an experienced English grammar checker for Chinese university students.
@@ -30,7 +30,7 @@ Always respond in both English and Chinese so students can understand easily."""
     human_input_mode="NEVER",
 )
 
-# ── Agent 2：改进建议老师 ──────────────────────────
+# Agent 2：改进建议老师
 advisor = ConversableAgent(
     name="WritingAdvisor",
     system_message="""You are a supportive English writing coach for Chinese university students.
@@ -44,7 +44,7 @@ Always respond in both English and Chinese so students can understand easily."""
     human_input_mode="NEVER",
 )
 
-# ── 示例学生作文 ────────────────────────────────────
+# 示例学生作文
 student_essay = """
 My summer holiday was very good. I go to Beijing with my family.
 We visited the Great Wall and it was very big and long.
@@ -53,12 +53,12 @@ I think Beijing is a beautiful city and I want to visit again in future.
 """
 
 print("=" * 60)
-print("🎓 英语作文批改双Agent系统")
+print("英语作文批改双Agent系统")
 print("=" * 60)
-print(f"\n📝 学生作文：\n{student_essay}")
+print(f"\n学生作文：\n{student_essay}")
 
 print("\n" + "=" * 60)
-print("🔍 Agent 1 (GrammarChecker) 正在检查语法错误...")
+print("Agent 1 (GrammarChecker) 正在检查语法错误...")
 print("=" * 60)
 
 checker_result = checker.generate_reply(
@@ -70,7 +70,7 @@ checker_result = checker.generate_reply(
 print(f"\n{checker_result}")
 
 print("\n" + "=" * 60)
-print("💡 Agent 2 (WritingAdvisor) 正在生成改进建议...")
+print("Agent 2 (WritingAdvisor) 正在生成改进建议...")
 print("=" * 60)
 
 advisor_result = advisor.generate_reply(
@@ -82,5 +82,5 @@ advisor_result = advisor.generate_reply(
 print(f"\n{advisor_result}")
 
 print("\n" + "=" * 60)
-print("✅ 批改完成！感谢使用英语教学双Agent系统")
+print("批改完成！感谢使用英语教学双Agent系统")
 print("=" * 60)
